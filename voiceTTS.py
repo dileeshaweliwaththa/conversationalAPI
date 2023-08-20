@@ -2,7 +2,7 @@ import requests
 from elevenlabs import generate, play
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Set your API key here
 API_KEY_ELBS = "ce1843626b13073800e1c7739cce6fe9"
