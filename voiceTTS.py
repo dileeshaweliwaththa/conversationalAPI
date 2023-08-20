@@ -2,7 +2,7 @@ import requests
 from elevenlabs import generate, play
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 # 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
 
 # Set your API key here
@@ -27,18 +27,13 @@ def make_response_humanlike(response_text):
 
 # ............................................................................
 
-f = open("Hello.mp3", "rb")
-
-transcript = openai.Audio.transcribe("whisper-1", f)
-print(transcript['text'])
-
 # ............................................................................
 
 # Prepare message for POST request
 # message = 'text'
 
 # Send POST request
-response = requests.post(RASA_SERVER_URL, json={"sender": "duck", "message": transcript['text']})
+response = requests.post(RASA_SERVER_URL, json={"sender": "duck", "message": "hELLO"})
 
 # Play the response message received from the server
 if response.status_code == 200:
