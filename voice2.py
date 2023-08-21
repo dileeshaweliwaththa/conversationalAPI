@@ -113,8 +113,8 @@ if __name__ == '__main__':
 
     # This Function will clean any
     # command before execution of this python file
-    clear()
-    wishMe()
+    # clear()
+    # wishMe()
     username()
 
     while True:

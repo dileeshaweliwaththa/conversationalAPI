@@ -11,3 +11,8 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: restaurant search
+  steps:
+  - intent: request_restaurant_near_me
+  - action: action_restaurant_near_me

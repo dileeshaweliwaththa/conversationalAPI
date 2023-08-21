@@ -89,3 +89,9 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: request_restaurant_near_me
+  examples: |
+    - Can you tell me about some restaurants near me?
+    - Which restaurants are close to my location?
+    - I want to find a restaurant nearby.
