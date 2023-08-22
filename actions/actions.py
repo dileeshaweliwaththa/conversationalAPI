@@ -33,16 +33,18 @@ class ActionDefaultFallback(Action):
         # def get_chatgpt_response(self, message):
         url = 'https://api.openai.com/v1/chat/completions'
         headers = {
-            'Authorization': 'Bearer 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',
+            'Authorization': 'Bearer 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',
             'Content-Type': 'application/json'
         }
         data = {
             'model': "gpt-3.5-turbo",
             'messages': [
-                {'role': 'system', 'content': 'You are an AI assistant for the user. You help to solve user query'},
-                {'role': 'user', 'content': 'You: ' + user_message}
-                ],
-            'max_tokens': 100
+                {'role': 'system', 'content': 'You are an AI assistant for the user who is the Driver of the Car.'
+                                              'You help to address and recover drowsiness while driving.'},
+                {'role': 'user', 'content': user_message}
+            ],
+            'max_tokens': 50,
+            'temperature': 0.8
         }
         response = requests.post(url, headers=headers, json=data)
         # response = requests.post(api_url, headers=headers, json=data)
@@ -113,3 +115,29 @@ class ActionRestaurantNearMe(Action):
         dispatcher.utter_message(
             text=r"Here are Top 5 restaurants nearby:" + "\n" + "\n".join(results[:5]))
 
+#
+# class ActionStartAlarm(Action):
+#     def name(self) -> Text:
+#         return "action_start_alarm"
+#
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#
+#         # You can implement the logic to start an alarm/alert here
+#         dispatcher.utter_message(text="I've started an alarm. Please wake up!")
+#
+#         return []
+#
+# class ActionStopAlarm(Action):
+#     def name(self) -> Text:
+#         return "action_stop_alarm"
+#
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#
+#         # You can implement the logic to stop the alarm/alert here
+#         dispatcher.utter_message(text="You're now awake. Thank you!")
+#
+#         return []

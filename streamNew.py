@@ -1,7 +1,7 @@
 import openai
 import requests
 import speech_recognition as sr
-from elevenlabs import generate, play
+from elevenlabs import generate, play, stream
 
 openai.api_key = "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"
 # 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
@@ -18,8 +18,9 @@ recognizer = sr.Recognizer()
 # elevenlabs implementation
 # Function to generate speech from text and play it
 def speak(audio_text, voice="Bella", model="eleven_monolingual_v1"):
-    audio = generate(text=audio_text, voice=voice, model=model, api_key=ELEVENLABS_API_KEY)
-    play(audio)
+    audio = generate(text=audio_text, voice=voice, model=model, stream=True, api_key=ELEVENLABS_API_KEY)
+    stream(audio)
+
 
 
 def make_response_humanlike(response_text):
@@ -38,7 +39,7 @@ def takeCommand():
 
     try:
         print("Recognizing...")
-        query = recognizer.recognize_whisper(audio)
+        query = recognizer.recognize_google(audio, language='en-in')
         print(f"User said: {query}\n")
         return query
     except Exception as e:

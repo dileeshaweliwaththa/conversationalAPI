@@ -9,10 +9,11 @@ intents:
   - mood_unhappy
   - bot_challenge
   - request_restaurant_near_me
+  - drowsy
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! I'm Drowsy Bot. How can I Assist You?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -28,7 +29,19 @@ responses:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am Drowsy Bot"
+
+  utter_drowsy_warning:
+  - text: "It seems like you're showing signs of drowsiness. Please take a break and rest. Your safety is important."
+
+  utter_thanks:
+  - text: "You're welcome! Remember to prioritize your safety. If you have any questions, feel free to ask."
+
+  utter_strong_warning:
+  - text: "It's really vital for both your safety and the safety of others that you find a safe place to rest immediately."
+
+  utter_rest_reassurance:
+  - text: "Great decision! It's important for your safety. Find a safe place to take a break and rest until you're feeling more alert."
 
 actions:
 - utter_greet

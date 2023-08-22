@@ -95,3 +95,16 @@ nlu:
     - Can you tell me about some restaurants near me?
     - Which restaurants are close to my location?
     - I want to find a restaurant nearby.
+
+- intent: drowsy
+  examples: |
+    - I'm feeling sleepy
+    - I can't keep my eyes open
+    - Feeling tired while driving
+    - Drowsy
+
+- intent: thanks
+  examples: |
+    - Thank you
+    - Thanks a lot
+    - Appreciate your help

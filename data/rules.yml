@@ -2,17 +2,27 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- rule: restaurant search
-  steps:
-  - intent: request_restaurant_near_me
-  - action: action_restaurant_near_me
+  - rule: restaurant search
+    steps:
+      - intent: request_restaurant_near_me
+      - action: action_restaurant_near_me
+
+  - rule: Activate drowsy warning
+    steps:
+      - intent: drowsy
+      - action: utter_drowsy_warning
+
+  - rule: Thank user
+    steps:
+      - intent: thanks
+      - action: utter_thanks

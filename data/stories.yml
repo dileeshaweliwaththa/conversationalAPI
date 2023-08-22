@@ -33,3 +33,29 @@ stories:
   steps:
   - intent: request_restaurant_near_me
   - action: action_restaurant_near_me
+
+- story: Drowsy driver warning
+  steps:
+  - intent: drowsy
+  - action: utter_drowsy_warning
+
+- story: Greet and thank
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: thanks
+  - action: utter_thanks
+
+- story: Drowsy driver doesn't want to stop
+  steps:
+  - intent: drowsy
+  - action: utter_drowsy_warning
+  - intent: deny
+  - action: utter_strong_warning
+
+- story: Drowsy driver agrees to take a break
+  steps:
+  - intent: drowsy
+  - action: utter_drowsy_warning
+  - intent: affirm
+  - action: utter_rest_reassurance
