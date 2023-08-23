@@ -3,7 +3,7 @@ import requests
 import speech_recognition as sr
 from elevenlabs import generate, play
 
-openai.api_key = "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"
+openai.api_key = "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"
 # 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
 
 # Set your API key here
@@ -14,6 +14,7 @@ RASA_SERVER_URL = "http://localhost:5005/webhooks/rest/webhook"
 
 # Initialize the speech recognition object
 recognizer = sr.Recognizer()
+
 
 # elevenlabs implementation
 # Function to generate speech from text and play it
@@ -32,15 +33,21 @@ def make_response_humanlike(response_text):
 # Function to capture user input from the microphone
 def takeCommand():
     with sr.Microphone() as source:
+        # Duration in seconds to listen for noise as initialization for more precise results
+        recognizer.adjust_for_ambient_noise(source, duration=0.2)  # Reduced duration
         print("Listening...")
-        recognizer.pause_threshold = 1
-        audio = recognizer.listen(source)
+        recognizer.pause_threshold = 0.8  # Reduced pause threshold
+        audio = recognizer.listen(source, timeout=5.0)  # Added timeout
 
     try:
         print("Recognizing...")
-        query = recognizer.recognize_whisper(audio)
+        query = recognizer.recognize_google(audio, language='en-us')
+
         print(f"User said: {query}\n")
         return query
+    except sr.WaitTimeoutError:
+        print("Wait timed out. No command was received.")
+        return None
     except Exception as e:
         print(e)
         print("Unable to recognize your voice.")
@@ -76,7 +83,3 @@ while True:
 
     else:
         print("Waiting for user input...")
-
-
-
-

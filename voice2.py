@@ -40,7 +40,7 @@ API_KEY = "ce1843626b13073800e1c7739cce6fe9"
 
 #elevenlabs implementation
 def speak(audio_text, voice="Bella", model="eleven_monolingual_v1"):
-    audio = generate(text=audio_text, voice=voice, model=model,   api_key=API_KEY)
+    audio = generate(text=audio_text, emotion="happy", voice=voice, model=model,   api_key=API_KEY)
     play(audio)
 
 
