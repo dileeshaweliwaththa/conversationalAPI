@@ -3,7 +3,7 @@ import requests
 import speech_recognition as sr
 from elevenlabs import generate, play
 
-openai.api_key = "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"
+openai.api_key = "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"
 # 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
 
 # Set your API key here
